@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="js/vue.js"></script>
+	</head>
+	<body>
+		<div id="app">
+			<h1>猜数字游戏</h1>
+			<br>
+			
+			<h3> 请输入1~100的数字</h3>
+			<input v-model="userNum">
+			
+			<li v-if="userNum>keyNum">你输入的数大了</li>
+			<li v-if="userNum<keyNum">你输入的数字小了</li>
+			<li v-if="userNum==keyNum">恭喜你，猜对了！！</li>
+			
+		
+		<script>
+			let vue=new Vue({
+				el:'#app',
+				data(){
+					return{
+						keyNum:Math.floor(Math.random()*100),
+						userNum:''
+					}
+				}
+			})
+		</script>
+	</body>
+</html>
