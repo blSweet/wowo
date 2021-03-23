@@ -3,17 +3,14 @@
 	<head>
 		<meta charset="utf-8">
 		<title></title>
-		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+		<script src="js/vue.js"></script>
 	</head>
 	<body>
 		<div id="app">
-			你的成绩等级是：
-			<h2 v-if="score>=90">优秀</h2>
-			<h2 v-else-if="score>=80 && score<90">优秀</h2>
-			<h2 v-else-if="score>=70 && score<80">良好</h2>
-			<h2 v-else-if="score>=60 && score<70">及格</h2>
-			<h2 v-else="score<60">不及格</h2>
-			<button @click="total">切换</button>
+			<h1>{{userNum}}</h1>
+			<br>
+			<input v-model="userNum">
+			
 		</div>
 		
 		<script>
@@ -21,14 +18,11 @@
 				el:'#app',
 				data(){
 					return{
-						score:45
+						userNum:''
 					}
 				},
 				methods:{
-					total(){
-						this.score=++this.score%5
-						console.log(this.score)
-					}
+					
 				}
 			})
 		</script>
