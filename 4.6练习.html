@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script type="text/javascript" src="js/vue.js">
+			
+		</script>
+	</head>
+	<body>
+		<div id="app">
+			<input type="text" v-model="userNum"/>
+			<h3 v-if="userNum==''"></h3>
+			
+			<h3 v-else-if="userNum==86">
+				你输入的国家代码为+{{userNum}}，它代表{{countrys[0].name}}，首都是{{countrys[0].captital}}
+					
+			</h3>
+			<h3 v-else-if="userNum==44">
+				你输入的国家代码为+{{userNum}}，它代表{{countrys[2].name}}，首都是{{countrys[2].captital}}
+			</h3>
+			<h3 v-else-if="userNum==1">
+				你输入的国家代码为+{{userNum}}，它代表{{countrys[1].name}}，首都是{{countrys[1].captital}}
+			</h3>
+			<h3 v-else="userNum!=1 || userNum!=44 ||userNum!=86">无法识别</h3>
+		</div>
+		
+		<script type="text/javascript">
+			new Vue({
+				el:'#app',
+				data:{
+					userNum:'',
+					countrys:[
+						{
+							name:'中国',
+							captital:'北京'
+						},
+						{
+							name:'美国',
+							captital:'华盛顿'
+						},
+						{
+							name:'英国',
+							captital:'伦敦'
+						},
+						
+					
+					
+					]
+				}
+			})
+		</script>
+	</body>
+</html>
