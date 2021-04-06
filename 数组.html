@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="js/vue.js"></script>
+	</head>
+	<body>
+		<div id="app">
+			请输入月份：<input v-model="userNumber" type="text" maxlength="2"/>
+			<h3 v-if="userNumber==''">null</h3>
+			<h3 v-else-if="userNumber>month.length">数据不合法</h3>
+			<h3 v-else>
+			<br />
+			你输入的月份为：{{userNumber}}，这个月有 {{month[userNumber-1]}}天
+			</h3>
+		</div>
+		
+		<script type="text/javascript">
+			new Vue({
+				el:'#app',
+				data:{
+					userNumber:'',
+					month:[31,28,31,30,31,30,31,31,30,31,30,31],
+				}
+			})
+		</script>
+	</body>
+</html>
