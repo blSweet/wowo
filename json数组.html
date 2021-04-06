@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script type="text/javascript" src="js/vue.js">
+			
+		</script>
+	</head>
+	<body>
+		<div id="app">
+			<input type="text" v-model="userNum"/>
+			<h3 v-if="userNum==''">null</h3>
+			<h3 v-else-if="userNum>schools.length">数据不合法</h3>
+			<h3 v-else>
+			name：{{schools[userNum-1].name}}
+			<br />
+			localtion：{{schools[userNum-1].localtion}}
+			
+			</h3>
+		</div>
+		
+		<script type="text/javascript">
+			new Vue({
+				el:'#app',
+				data:{
+					userNum:'',
+					schools:[
+						{
+						name:'哈佛大学',
+						localtion:'美国'
+						},
+						{
+							name:'牛津大学',
+							localtion:'英国'
+						},
+						{
+							name:'耶鲁大学',
+							localtion:'美国康涅狄格州纽黑文'
+						},
+						{
+							name:'剑桥大学',
+							localtion:'英国剑桥'
+						},
+					
+					
+					]
+				}
+			})
+		</script>
+	</body>
+</html>
