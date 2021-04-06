@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script type="text/javascript" src="js/vue.js">
+			
+		</script>
+	</head>
+	<body>
+		<div id="app">
+			
+			<h3 v-for="school in schools">
+				name：{{school.name}}，localtion：{{school.localtion}}
+				<br>
+				
+			</h3>
+			
+		</div>
+		
+		<script type="text/javascript">
+			new Vue({
+				el:'#app',
+				data:{
+					userNum:'',
+					schools:[
+						{
+						name:'哈佛大学',
+						localtion:'美国'
+						},
+						{
+							name:'牛津大学',
+							localtion:'英国'
+						},
+						{
+							name:'耶鲁大学',
+							localtion:'美国康涅狄格州纽黑文'
+						},
+						{
+							name:'剑桥大学',
+							localtion:'英国剑桥'
+						},
+					
+					
+					]
+				}
+			})
+		</script>
+	</body>
+</html>
