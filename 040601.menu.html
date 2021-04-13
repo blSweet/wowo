@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="js/vue.js"></script>
+		<style>
+			table{
+				font-size: 15px;
+				color: dodgerblue;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="app">
+			<table border="01"  style="border-spacing: 0;border-color: pink;"  width="400px" height="100px">
+				<caption>总菜单</caption>
+				<tr>
+					<th>序号</th>
+					<th>菜名</th>
+					<th>单价</th>
+					<th>下单电话</th>
+				</tr>
+				<tr v-for="menu in menus">
+					<th>{{menu.id}}</th>
+					<th>{{menu.name}}</th>
+					<th>{{menu.price}}</th>
+					<th>{{menu.phone}}</th>
+				</tr>
+				
+			</table>
+			<br />
+			外卖菜单搜索：<input type="text" v-model="userNum" />
+			<br><br />
+			<div v-if="userNum=='豆浆'">
+				<table border="1" style="border-spacing: 0;">
+					<tr>
+						<th>菜名</th>
+						<th>单价</th>
+						<th>下单电话</th>
+					</tr>
+					<tr>
+						<th>{{menus[0].name}}</th>
+						<th>{{menus[0].price}}</th>
+						<th>{{menus[0].phone}}</th>
+					</tr>
+					
+				</table>
+			</div>
+			<div v-if="userNum=='牛肉番茄粉'">
+				<table border="1" style="border-spacing: 0;">
+					<tr>
+						<th>菜名</th>
+						<th>单价</th>
+						<th>下单电话</th>
+					</tr>
+					<tr>
+						<th>{{menus[1].name}}</th>
+						<th>{{menus[1].price}}</th>
+						<th>{{menus[1].phone}}</th>
+					</tr>
+					
+				</table>
+			</div>
+			<div v-if="userNum=='螺蛳粉'">
+				<table border="1" style="border-spacing: 0;">
+					<tr>
+						<th>菜名</th>
+						<th>单价</th>
+						<th>下单电话</th>
+					</tr>
+					<tr>
+						<th>{{menus[2].name}}</th>
+						<th>{{menus[2].price}}</th>
+						<th>{{menus[2].phone}}</th>
+					</tr>
+					
+				</table>
+			</div>
+			<div v-if="userNum=='麻辣烫'">
+				<table border="1" style="border-spacing: 0;">
+					<tr>
+						<th>菜名</th>
+						<th>单价</th>
+						<th>下单电话</th>
+					</tr>
+					<tr>
+						<th>{{menus[3].name}}</th>
+						<th>{{menus[3].price}}</th>
+						<th>{{menus[3].phone}}</th>
+					</tr>
+					
+				</table>
+			</div>
+			<div v-if="userNum=='烤肉拌饭'">
+				<table border="1" style="border-spacing: 0;">
+					<tr>
+						<th>菜名</th>
+						<th>单价</th>
+						<th>下单电话</th>
+					</tr>
+					<tr>
+						<th>{{menus[4].name}}</th>
+						<th>{{menus[4].price}}</th>
+						<th>{{menus[4].phone}}</th>
+					</tr>
+					
+				</table>
+			</div>
+			<div v-if="userNum=='炸鸡'">
+				<table border="1" style="border-spacing: 0;">
+					<tr>
+						<th>菜名</th>
+						<th>单价</th>
+						<th>下单电话</th>
+					</tr>
+					<tr>
+						<th>{{menus[5].name}}</th>
+						<th>{{menus[5].price}}</th>
+						<th>{{menus[5].phone}}</th>
+					</tr>
+					
+				</table>
+			</div>
+			<div v-if="userNum=='可乐'">
+				<table border="1" style="border-spacing: 0;">
+					<tr>
+						<th>菜名</th>
+						<th>单价</th>
+						<th>下单电话</th>
+					</tr>
+					<tr>
+						
+						<th>{{menus[6].name}}</th>
+						<th>{{menus[6].price}}</th>
+						<th>{{menus[6].phone}}</th>
+					</tr>
+					
+				</table>
+			</div>
+			<div v-if="userNum=='水果沙拉'">
+				<table border="1" style="border-spacing: 0;">
+					<tr>
+						<th>菜名</th>
+						<th>单价</th>
+						<th>下单电话</th>
+					</tr>
+					<tr>
+						<th>{{menus[7].name}}</th>
+						<th>{{menus[7].price}}</th>
+						<th>{{menus[7].phone}}</th>
+					</tr>
+					
+				</table>
+			</div>
+			
+		</div>
+		
+		<script>
+			new Vue({
+				el:'#app',
+				data:{
+					userNum:'',
+					menus:[
+						{
+							id:1,
+							name:'豆浆',
+							price:3,
+							phone:'2234568917'
+						},
+						{
+							id:2,
+							name:'牛肉番茄粉',
+							price:15,
+							phone:'1112233658'
+						},
+						{
+							id:3,
+							name:'螺蛳粉',
+							price:10,
+							phone:'178995623'
+						},
+						{
+							id:4,
+							name:'麻辣烫',
+							price:19,
+							phone:'1235556678'
+						},
+						{
+							id:5,
+							name:'烤肉拌饭',
+							price:18,
+							phone:'13312345678'
+						},
+						{
+							id:6,
+							name:'炸鸡',
+							price:25,
+							phone:'1331234552'
+						},
+						{
+							id:7,
+							name:'可乐',
+							price:6,
+							phone:'1335545263'
+						},
+						{
+							id:8,
+							name:'水果沙拉',
+							price:18,
+							phone:'13317789578'
+						},
+						
+					]
+				}
+			})
+		</script>
+	</body>
+</html>
