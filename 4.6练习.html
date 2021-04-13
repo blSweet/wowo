@@ -22,6 +22,12 @@
 			<h3 v-else-if="userNum==1">
 				你输入的国家代码为+{{userNum}}，它代表{{countrys[1].name}}，首都是{{countrys[1].captital}}
 			</h3>
+			<h3 v-else-if="userNum=='kop' || userNum=='KOP'">
+				你输入的国家代码为+{{userNum}}，它代表{{countrys[3].name}}，首都是{{countrys[1].captital}}
+			</h3>
+			<h3 v-else-if="userNum=='aus' || userNum=='AUS'">
+				你输入的国家代码为+{{userNum}}，它代表{{countrys[4].name}}，首都是{{countrys[1].captital}}
+			</h3>
 			<h3 v-else="userNum!=1 || userNum!=44 ||userNum!=86">无法识别</h3>
 		</div>
 		
@@ -42,6 +48,14 @@
 						{
 							name:'英国',
 							captital:'伦敦'
+						},
+						{
+							name:'韩国',
+							captital:'首尔'
+						},
+						{
+							name:'澳大利亚',
+							captital:'堪培拉'
 						},
 						
 					
