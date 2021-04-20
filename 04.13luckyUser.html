@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="js/vue.js"></script>
+	</head>
+	<body>
+		<div id="app">
+			一共有8位用户：
+			<table border="1">
+				<tr v-for="p in perple">
+					<th>{{p.id}}</th>
+					<th>{{p.name}}</th>
+				</tr>
+			</table>
+			<br />
+			
+			<div >
+				<input type="button" value="抽取幸运用户" @click="refresh"/>
+				
+				<p v-if="userNum==lucky">幸运用户是：{{perple[userNum-1].name}}</p>
+				<p v-if="userNum!=lucky">正在抽取幸运用户~</p>
+				
+			</div>
+		</div>
+		<script>
+			new Vue({
+				el:'#app',
+				data:{
+					userNum:Math.ceil(Math.random()*8),
+					lucky:Math.ceil(Math.random()*8),
+					perple:[
+						{
+							id:1,
+							name:'json'
+						},
+						{
+							id:2,
+							name:'丽丽'
+						},
+						{
+							id:3,
+							name:'画画'
+						},
+						{
+							id:4,
+							name:'lili'
+						},
+						{
+							id:5,
+							name:'lisa'
+						},
+						{
+							id:6,
+							name:'wuli'
+						},
+						{
+							id:7,
+							name:'baby'
+						},
+						{
+							id:8,
+							name:'第三方速度'
+						},
+					]
+				},
+				methods:{
+					refresh(){
+						window.location.reload();
+					}
+				}
+				
+			})
+		</script>
+	</body>
+</html>
