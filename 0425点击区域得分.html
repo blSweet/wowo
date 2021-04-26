@@ -1,15 +1,15 @@
-<!DOCTYPE html>
+<<!DOCTYPE html>
 <html>
 	<head>
 		<meta charset="utf-8" />
 		<title></title>
-		<script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
+		<script src="./js/vue.js" type="text/javascript" charset="utf-8"></script>
 	</head>
 	<body>
 		<div id="app">
 			
-			<img src="./img/小女孩.jpg" @click="show()" :disable="isClick"/>
-			设置了6个得分区域，请点击得分区域，目前得分为：{{userNum}}
+			<img src="img/不用.jpg" @click="show()" :disable="isClick"/>
+			设置了4个得分区域，请点击得分区域，目前得分为：{{userNum}}
 		</div>
 		
 		<script>
@@ -17,28 +17,89 @@
 				el:'#app',
 				data:{
 					userNum:0,
-					isClick:true
+					isClick:true,
+					area1:0,
+					area2:0,
+					area3:0,
+					area4:0,
+					
+					
 				},
 				methods:{
 					show(){
-						 
-						if((event.clientX>25 && event.clientX<98 &&event.clientY>274 &&event.clientY<305)||
-						(event.clientX>382 && event.clientX<476 && event.clientY>149 &&event.clientY<215)||
-						(event.clientX>665 && event.clientX<698 && event.clientY>173 &&event.clientY<212)||
-						(event.clientX>129 && event.clientX<167 && event.clientY>324 &&event.clientY<360)||
-						(event.clientX>336 && event.clientX<430 && event.clientY>8 &&event.clientY<51)||
-						(event.clientX>553 && event.clientX<593 && event.clientY>22 &&event.clientY<40)
-						){
-							
-								if(this.userNum<100){
-									v.userNum++;
+						 console.log(event.clientX+","+event.clientY)
+						if(v.userNum<100){
+							if((event.clientX>156 && event.clientX<198 &&event.clientY>93 &&event.clientY<113)						
+							){							
+									if(this.area1<25){
+										v.area1++;			
+										v.userNum=v.area1+v.area2+v.area3+v.area4;
+										
+										
+									}else{
+										alert("该区域点击次数已达到最大值！请寻找其他得分区域");
+										v.isClick=false;
+									}
 									
 									
-								}else{
-									alert("点击得分已达到最大！游戏通过！！");
-									v.isClick=false;
 								}
-							}
+							if((event.clientX>175 && event.clientX<211 &&event.clientY>15 &&event.clientY<39)						
+							){							
+									if(this.area2<25){
+										v.area2++;			
+										v.userNum=v.area1+v.area2+v.area3+v.area4;
+										
+									}else{
+										alert("该区域点击次数已达到最大值！请寻找其他得分区域");
+										v.isClick=false;
+									}
+									
+								}
+								
+							if((event.clientX>588 && event.clientX<625 &&event.clientY>63 &&event.clientY<89)						
+															){							
+																	if(this.area3<26){
+																		v.area3++;			
+																		v.userNum=v.area1+v.area2+v.area3+v.area4;
+																		
+																		
+																	}else{
+																		alert("该区域点击次数已达到最大值！请寻找其他得分区域");
+																		v.isClick=false;
+																	}
+																	
+																	
+																}
+																
+															if((event.clientX>83 && event.clientX<130 &&event.clientY>182 &&event.clientY<201)						
+															){							
+																	if(this.area4<25){
+																		v.area4++;			
+																		v.userNum=v.area1+v.area2+v.area3+v.area4;
+																		
+																		
+																	}else{
+																		alert("该区域点击次数已达到最大值！请寻找其他得分区域");
+																		v.isClick=false;
+																	}
+																	
+																	
+																}
+							// 									
+															
+																	
+																	
+															
+								}else{
+									alert("你已通过游戏")
+								}
+							// 									
+							
+								
+								
+						
+
+						
 							
 					}
 				}
