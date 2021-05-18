@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<script src="js/vue.js"></script>
+	</head>
+	<body>
+		<canvas id="canvas" width="600" height=""></canvas>
+		
+		<div id="app">
+			<input type="button" @click="show()" value="绘制图案" />
+			<!-- <input type="text" v-model="r"/> -->
+			
+		</div>
+		
+		<script>
+			let v=new Vue({
+				el:'#app',
+				data:{
+					r:''
+				},
+				methods:{
+					show(){
+						var canvas = document.getElementById('canvas');
+						  if (canvas.getContext) {
+							var ctx = canvas.getContext('2d');
+							//创建一个新路径。创建之后，将来的绘图命令将直接进入路径并用于构建路径。
+							ctx.beginPath();
+							
+							//beginPath()调用画布时，通常将需要使用该moveTo()函数将起点放置在其他位置
+							//移动笔由指定的坐标x和y。
+							ctx.moveTo(100, 50);
+							
+							//绘制一条从当前绘图位置到所指定的位置的线x和y
+							ctx.lineTo(150, 100);
+							ctx.lineTo(150, 50);
+							
+							
+							
+							//通过填充路径的内容区域绘制实体形状。
+							ctx.fill();
+						  }
+					  }
+					}
+				
+			})
+		</script>
+	</body>
+</html>
