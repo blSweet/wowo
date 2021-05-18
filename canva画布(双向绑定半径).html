@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<script src="js/vue.js"></script>
+	</head>
+	<body>
+		<canvas id="myCanvas" width="600" height="400"></canvas>
+		
+		<div id="app">
+			<input type="button" @click="show()" value="绘制图案" />
+			<input type="text" v-model="r"/>
+			
+		</div>
+		
+		<script>
+			let v=new Vue({
+				el:'#app',
+				data:{
+					r:''
+				},
+				methods:{
+					show(){
+						//获取canvas的ID
+						let canvas=document.getElementById("myCanvas");
+						//获取内容
+						let context=canvas.getContext("2d");
+						context.beginPath();
+						
+						//arc(x轴，y轴，半径，，)
+						context.arc(150,200,v.r,0,2*Math.PI)
+						context.stroke()
+					}
+				}
+			})
+		</script>
+	</body>
+</html>
