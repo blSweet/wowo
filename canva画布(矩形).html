@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<script src="js/vue.js"></script>
+	</head>
+	<body>
+		<canvas id="canvas" width="600" height=""></canvas>
+		
+		<div id="app">
+			<input type="button" @click="show()" value="绘制图案" />
+			<!-- <input type="text" v-model="r"/> -->
+			
+		</div>
+		
+		<script>
+			let v=new Vue({
+				el:'#app',
+				data:{
+					r:''
+				},
+				methods:{
+					show(){
+						let canvas = document.getElementById('canvas');
+						let ctx = canvas.getContext('2d');
+
+						ctx.fillStyle = 'pink';
+						ctx.fillRect(10, 10, 150, 100);
+					}
+				}
+				
+			})
+		</script>
+	</body>
+</html>
