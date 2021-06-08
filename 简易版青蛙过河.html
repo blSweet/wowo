@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<script src="js/vue.js"></script>
+	</head>
+	<body>
+		<canvas id="myCanvas" width="800" height="500"></canvas>
+		
+		<div id="app">
+			<input type="text" @click="show()" @keyup.enter="show()" v-model="userInput" />&nbsp;&nbsp;
+			得分：{{score}}&nbsp;&nbsp;
+			跳跃次数：{{jump}}
+		</div>
+		<script>
+			let v=new Vue({
+				el:'#app',
+				data:{
+					userInput:'',
+					score:0,
+					jump:0,					
+				},
+				methods:{
+					show(){
+						console.log(this.userInput)
+						let canvas=document.getElementById("myCanvas");
+						let context=canvas.getContext("2d");
+						let image1=new Image();
+						image1.src="img/background.gif";
+						image1.onload=function(){
+							context.drawImage(image1,0,0);
+						}
+						
+						//显示青蛙
+						let image2=new Image();
+						image2.src="img/frog.gif";
+						image2.onload=function(){
+							context.drawImage(image2,250,280);
+						}
+						
+						//判断位置
+						
+							if(this.userInput=="hello"){
+								this.userInput="";
+									v.score=v.score+10;
+									v.jump++;
+									image2.onload=function(){
+										context.drawImage(image2,200,150);
+								}
+								
+							}
+						
+						//判断位置
+						
+							if(this.userInput=="world"){
+								this.userInput="";
+								v.score=v.score+14;
+								v.jump++;
+								image2.onload=function(){
+									context.drawImage(image2,290,90);
+								}			
+							}
+						
+						//判断位置
+						
+							if(this.userInput=="hi"){
+								this.userInput="";
+								v.score=v.score+15;
+								v.jump++;
+								image2.onload=function(){
+									context.drawImage(image2,120,30);								
+								}								
+								
+							}						
+								
+							
+							
+							if(v.jump>=3){
+								alert("你已通过游戏！")
+							}
+							
+							
+						
+						
+						
+						
+						
+						
+					}
+				}
+			})
+		</script>
+		
+	</body>
+</html>
